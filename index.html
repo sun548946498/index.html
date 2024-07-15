@@ -1,86 +1,102 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工作日程表</title>
+    <title>员工工作向导</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
             margin: 0;
-            padding: 20px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-size: 10px;
-            table-layout: auto;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 4px;
-            text-align: center;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
+            padding: 0;
+            background-color: #f7f7f7;
         }
         .container {
-            overflow-x: auto;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .header {
+            background-color: #6a82fb;
+            color: #ffffff;
+            padding: 20px;
+            font-size: 24px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .menu div {
+            width: 20%;
+            padding: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 0 10px;
+        }
+        .menu .cook {
+            background-color: #ffb74d;
+        }
+        .menu .coat {
+            background-color: #64b5f6;
+        }
+        .menu .reception {
+            background-color: #81c784;
+        }
+        .content {
+            display: none;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>天数</th>
-                    <th>星期</th>
-                    <th>打烊</th>
-                    <th>掏地沟</th>
-                    <th>滤油</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>第1天</td><td>星期一</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第2天</td><td>星期二</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第3天</td><td>星期三</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第4天</td><td>星期四</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第5天</td><td>星期五</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第6天</td><td>星期六</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第7天</td><td>星期日</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第8天</td><td>星期一</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第9天</td><td>星期二</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第10天</td><td>星期三</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第11天</td><td>星期四</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第12天</td><td>星期五</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第13天</td><td>星期六</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第14天</td><td>星期日</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第15天</td><td>星期一</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第16天</td><td>星期二</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第17天</td><td>星期三</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第18天</td><td>星期四</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第19天</td><td>星期五</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第20天</td><td>星期六</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第21天</td><td>星期日</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第22天</td><td>星期一</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第23天</td><td>星期二</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第24天</td><td>星期三</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第25天</td><td>星期四</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第26天</td><td>星期五</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第27天</td><td>星期六</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-                <tr><td>第28天</td><td>星期日</td><td>赵灿</td><td>曹永康</td><td>刘星宇</td></tr>
-                <tr><td>第29天</td><td>星期一</td><td>曹永康</td><td>刘星宇</td><td>赵灿</td></tr>
-                <tr><td>第30天</td><td>星期二</td><td>刘星宇</td><td>赵灿</td><td>曹永康</td></tr>
-            </tbody>
-        </table>
+        <div class="header">员工工作向导</div>
+        <div class="menu">
+            <div class="cook" onclick="toggleContent('cookContent')">做餐</div>
+            <div class="coat" onclick="toggleContent('coatContent')">裹粉</div>
+            <div class="reception" onclick="toggleContent('receptionContent')">前台</div>
+        </div>
+        <div id="cookContent" class="content">
+            <!-- 做餐的具体内容 -->
+            <h2>做餐步骤</h2>
+            <p>这里是做餐的具体内容...</p>
+        </div>
+        <div id="coatContent" class="content">
+            <!-- 裹粉的具体内容 -->
+            <h2>裹粉步骤</h2>
+            <p>这里是裹粉的具体内容...</p>
+        </div>
+        <div id="receptionContent" class="content">
+            <!-- 前台的具体内容 -->
+            <h2>前台步骤</h2>
+            <p>这里是前台的具体内容...</p>
+        </div>
     </div>
+
+    <script>
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(c => {
+                if (c !== content) {
+                    c.style.display = 'none';
+                }
+            });
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
