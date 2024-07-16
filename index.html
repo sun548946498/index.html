@@ -6,37 +6,47 @@
     <title>员工工作向导</title>
     <style>
         :root {
-            --main-bg-color: #f7f7f7;
-            --header-bg-color: #6a82fb;
-            --header-text-color: #ffffff;
-            --cook-bg-color: #ffb74d;
-            --coat-bg-color: #64b5f6;
-            --reception-bg-color: #81c784;
-            --schedule-bg-color: #ba68c8;
-            --content-bg-color: #ffffff;
-            --btn-save-bg-color: #5cb85c;
-            --btn-save-text-color: #ffffff;
-            --border-radius: 10px;
+            --main-bg-color: #f7f7f7; /* 主背景颜色 */
+            --header-bg-color: #ffffff; /* 主板块背景颜色 */
+            --header-text-color: #6a82fb; /* 主板块文字颜色 */
+            --header-border-color: #cccccc; /* 主板块边框颜色 */
+            --cook-bg-color: #ffffff; /* 做餐板块背景颜色 */
+            --coat-bg-color: #ffffff; /* 裹粉板块背景颜色 */
+            --reception-bg-color: #ffffff; /* 前台板块背景颜色 */
+            --schedule-bg-color: #ffffff; /* 排班板块背景颜色 */
+            --content-bg-color: #ffffff; /* 内容区域背景颜色 */
+            --btn-save-bg-color: #5cb85c; /* 保存按钮背景颜色 */
+            --btn-save-text-color: #ffffff; /* 保存按钮文字颜色 */
+            --border-radius: 20px; /* 圆角半径 */
+            --content-border-color: #cccccc; /* 内容区域边框颜色 */
         }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--main-bg-color);
+            background-color: var(--main-bg-color); /* 设置主背景颜色 */
         }
         .container {
             text-align: center;
             width: 100%;
             padding: 20px;
         }
-        .header {
-            background-color: var(--header-bg-color);
-            color: var(--header-text-color);
+        .header, .cook, .coat, .reception, .schedule {
+            background-color: var(--header-bg-color); /* 设置板块背景颜色 */
+            color: var(--header-text-color); /* 设置板块文字颜色 */
             padding: 20px;
             font-size: 24px;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius); /* 设置板块圆角 */
             margin-bottom: 20px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--header-border-color); /* 设置板块边框 */
+        }
+        .header img {
+            max-width: 50px; /* 设置logo最大宽度 */
+            margin-right: 10px; /* 设置logo与文字间距 */
         }
         .menu {
             display: flex;
@@ -45,37 +55,28 @@
         }
         .menu div {
             padding: 10px 20px;
-            color: var(--header-text-color);
+            color: var(--header-text-color); /* 设置板块按钮文字颜色 */
             cursor: pointer;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius); /* 设置板块按钮圆角 */
             margin: 0 10px;
             transition: background-color 0.5s, transform 0.5s;
-        }
-        .menu .cook {
-            background-color: var(--cook-bg-color);
-        }
-        .menu .coat {
-            background-color: var(--coat-bg-color);
-        }
-        .menu .reception {
-            background-color: var(--reception-bg-color);
-        }
-        .menu .schedule {
-            background-color: var(--schedule-bg-color);
+            background-color: var(--header-bg-color); /* 设置板块按钮背景颜色 */
+            box-shadow: none; /* 移除板块按钮背影 */
         }
         .menu div:hover {
-            transform: scale(1.1);
+            transform: scale(1.1); /* 设置鼠标悬停效果 */
         }
         .content {
             display: none;
             margin: 20px auto;
-            background-color: var(--content-bg-color);
+            background-color: var(--content-bg-color); /* 设置内容区域背景颜色 */
             padding: 20px;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius); /* 设置内容区域圆角 */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%;
             opacity: 0;
             transition: opacity 0.5s;
+            border: none; /* 移除子板块的边框 */
         }
         .content.show {
             display: block;
@@ -111,8 +112,8 @@
         }
         .save-btn {
             display: none;
-            background-color: var(--btn-save-bg-color);
-            color: var(--btn-save-text-color);
+            background-color: var(--btn-save-bg-color); /* 设置保存按钮背景颜色 */
+            color: var(--btn-save-text-color); /* 设置保存按钮文字颜色 */
         }
         .editable[contenteditable="true"] + .save-btn {
             display: inline-block;
@@ -132,8 +133,8 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: var(--btn-save-bg-color);
-            color: var(--btn-save-text-color);
+            background-color: var(--btn-save-bg-color); /* 设置提交按钮背景颜色 */
+            color: var(--btn-save-text-color); /* 设置提交按钮文字颜色 */
             cursor: pointer;
         }
         .upload-container {
@@ -145,37 +146,52 @@
         }
         .media-container img, .media-container video {
             max-width: 100%;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius); /* 设置媒体元素圆角 */
             margin-top: 10px;
+            pointer-events: none; /* 禁止点击 */
+        }
+        .media-container video {
+            pointer-events: auto; /* 允许点击视频 */
+            cursor: pointer;
         }
         .media-actions {
+            display: none;
             margin-top: 10px;
+        }
+        .media-actions.show {
+            display: block;
         }
         .media-actions button {
             margin: 5px;
             padding: 5px 10px;
             border: none;
             border-radius: 5px;
-            background-color: #d9534f;
-            color: white;
+            background-color: #d9534f; /* 设置删除按钮背景颜色 */
+            color: white; /* 设置删除按钮文字颜色 */
             cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header" onclick="toggleAuthContainer()">员工工作向导</div>
+        <!-- 主板块 -->
+        <div class="header" onclick="toggleAuthContainer()">
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+            员工工作向导
+        </div>
         <div class="auth-container" id="authContainer">
             <h2>请输入密码以编辑内容</h2>
             <input type="password" id="authPassword" placeholder="密码">
             <button onclick="authenticate()">提交</button>
         </div>
+        <!-- 板块按钮 -->
         <div class="menu">
             <div class="cook" onclick="toggleContent('cookContent')">做餐</div>
             <div class="coat" onclick="toggleContent('coatContent')">裹粉</div>
             <div class="reception" onclick="toggleContent('receptionContent')">前台</div>
             <div class="schedule" onclick="toggleContent('scheduleContent')">工作排班列表</div>
         </div>
+        <!-- 做餐板块 -->
         <div id="cookContent" class="content">
             <h2>做餐步骤</h2>
             <p id="cookText" class="editable">这里是做餐的具体内容...</p>
@@ -185,6 +201,10 @@
             </div>
             <div id="cookMediaContainer" class="media-container">
                 <img src="https://i.ibb.co/Jsdfxpg/image.png" alt="示例图片">
+                <div class="media-actions">
+                    <button onclick="deleteMedia(this)">删除</button>
+                    <button onclick="replaceMedia(this, 'cookImageUpload')">替换</button>
+                </div>
             </div>
             <input type="hidden" id="cookImageData">
             <input type="hidden" id="cookVideoData">
@@ -192,6 +212,7 @@
             <button class="button save-btn" id="saveBtn-cookImage" onclick="saveMedia('cookImageData')">保存图片</button>
             <button class="button save-btn" id="saveBtn-cookVideo" onclick="saveMedia('cookVideoData')">保存视频</button>
         </div>
+        <!-- 裹粉板块 -->
         <div id="coatContent" class="content">
             <h2>裹粉步骤</h2>
             <p id="coatText" class="editable">这里是裹粉的具体内容...</p>
@@ -206,6 +227,7 @@
             <button class="button save-btn" id="saveBtn-coatImage" onclick="saveMedia('coatImageData')">保存图片</button>
             <button class="button save-btn" id="saveBtn-coatVideo" onclick="saveMedia('coatVideoData')">保存视频</button>
         </div>
+        <!-- 前台板块 -->
         <div id="receptionContent" class="content">
             <h2>前台步骤</h2>
             <p id="receptionText" class="editable">这里是前台的具体内容...</p>
@@ -220,6 +242,7 @@
             <button class="button save-btn" id="saveBtn-receptionImage" onclick="saveMedia('receptionImageData')">保存图片</button>
             <button class="button save-btn" id="saveBtn-receptionVideo" onclick="saveMedia('receptionVideoData')">保存视频</button>
         </div>
+        <!-- 排班列表板块 -->
         <div id="scheduleContent" class="content">
             <h2>工作排班列表</h2>
             <div class="iframe-container">
@@ -229,40 +252,56 @@
     </div>
 
     <script>
-        let currentContent = null;
-        const correctPassword = "12345678";
+        let currentContent = null; /* 当前显示的内容 */
+        const correctPassword = "12345678"; /* 认证密码 */
+        let isAuthenticated = false; /* 认证状态 */
 
+        /* 切换认证容器显示状态 */
         function toggleAuthContainer() {
             const authContainer = document.getElementById('authContainer');
             authContainer.style.display = authContainer.style.display === 'block' ? 'none' : 'block';
         }
 
+        /* 认证用户输入的密码 */
         function authenticate() {
             const inputPassword = document.getElementById('authPassword').value;
             if (inputPassword === correctPassword) {
                 document.getElementById('authContainer').style.display = 'none';
                 enableEditing();
                 alert('认证成功！您现在可以编辑内容。');
+                isAuthenticated = true;
+                document.querySelectorAll('.upload-container').forEach(container => {
+                    container.style.display = 'block';
+                });
+                document.querySelectorAll('.media-container img').forEach(img => {
+                    img.style.pointerEvents = 'auto';
+                    img.style.cursor = 'pointer';
+                    img.addEventListener('click', function(event) {
+                        if (isAuthenticated) {
+                            const mediaActions = this.nextElementSibling;
+                            if (mediaActions) {
+                                mediaActions.classList.toggle('show');
+                            }
+                        }
+                    });
+                });
             } else {
                 alert('密码错误，请重试。');
             }
         }
 
+        /* 启用内容编辑功能 */
         function enableEditing() {
             const editables = document.querySelectorAll('.editable');
-            const uploadContainers = document.querySelectorAll('.upload-container');
             const saveButtons = document.querySelectorAll('.save-btn');
 
             editables.forEach(element => {
                 element.addEventListener('click', () => {
+                    if (!isAuthenticated) return;
                     element.contentEditable = true;
                     element.focus();
                     document.getElementById('saveBtn-' + element.id).style.display = 'inline-block';
                 });
-            });
-
-            uploadContainers.forEach(container => {
-                container.style.display = 'block';
             });
 
             saveButtons.forEach(button => {
@@ -270,6 +309,7 @@
             });
         }
 
+        /* 切换显示的内容 */
         function toggleContent(contentId) {
             const newContent = document.getElementById(contentId);
             if (currentContent === newContent) {
@@ -289,12 +329,14 @@
             }
         }
 
+        /* 显示新的内容 */
         function showNewContent(newContent) {
             newContent.style.display = 'block';
             setTimeout(() => newContent.classList.add('show'), 10);
             currentContent = newContent;
         }
 
+        /* 保存内容 */
         function saveContent(elementId) {
             const element = document.getElementById(elementId);
             element.contentEditable = false;
@@ -304,6 +346,7 @@
             alert('内容已保存');
         }
 
+        /* 保存媒体内容 */
         function saveMedia(dataId) {
             const mediaData = document.getElementById(dataId).value;
             console.log('Saved media:', mediaData);
@@ -311,6 +354,7 @@
             document.getElementById('saveBtn-' + dataId.replace('Data', '')).style.display = 'none';
         }
 
+        /* 显示上传的媒体 */
         function displayMedia(uploadId, containerId, type, saveBtnId) {
             const fileInput = document.getElementById(uploadId);
             const container = document.getElementById(containerId);
@@ -365,6 +409,46 @@
                     reader.readAsDataURL(file);
                 }
             });
+        }
+
+        /* 切换媒体操作按钮显示状态 */
+        function toggleMediaActions(mediaElement) {
+            if (!isAuthenticated) return;
+            const actionsContainer = mediaElement.nextElementSibling;
+            if (actionsContainer.classList.contains('show')) {
+                actionsContainer.classList.remove('show');
+            } else {
+                actionsContainer.classList.add('show');
+            }
+        }
+
+        /* 删除媒体 */
+        function deleteMedia(button) {
+            const mediaElement = button.parentElement.previousElementSibling;
+            const actionsContainer = button.parentElement;
+            const container = actionsContainer.parentElement;
+            container.removeChild(mediaElement);
+            container.removeChild(actionsContainer);
+        }
+
+        /* 替换媒体 */
+        function replaceMedia(button, uploadId) {
+            const fileInput = document.getElementById(uploadId);
+            const container = button.parentElement.parentElement;
+
+            fileInput.onchange = function() {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const mediaElement = container.querySelector('img, video');
+                    mediaElement.src = e.target.result;
+                }
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            fileInput.click();
         }
     </script>
 </body>
