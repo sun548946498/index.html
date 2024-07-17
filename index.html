@@ -6,86 +6,109 @@
     <title>员工工作向导</title>
     <style>
         :root {
-            --main-bg-color: #f7f7f7; /* 主背景颜色 */
-            --header-bg-color: #ffffff; /* 主板块背景颜色 */
-            --header-text-color: #6a82fb; /* 主板块文字颜色 */
-            --header-border-color: #cccccc; /* 主板块边框颜色 */
-            --cook-bg-color: #ffffff; /* 做餐板块背景颜色 */
-            --coat-bg-color: #ffffff; /* 裹粉板块背景颜色 */
-            --reception-bg-color: #ffffff; /* 前台板块背景颜色 */
-            --schedule-bg-color: #ffffff; /* 排班板块背景颜色 */
-            --content-bg-color: #ffffff; /* 内容区域背景颜色 */
-            --btn-save-bg-color: #5cb85c; /* 保存按钮背景颜色 */
-            --btn-save-text-color: #ffffff; /* 保存按钮文字颜色 */
-            --border-radius: 20px; /* 圆角半径 */
-            --content-border-color: #cccccc; /* 内容区域边框颜色 */
+            --main-bg-color: #f7f7f7;
+            --header-bg-color: #ffffff;
+            --header-text-color: #6a82fb;
+            --header-border-color: #cccccc;
+            --content-bg-color: #ffffff;
+            --border-radius: 20px;
+            --content-border-color: #cccccc;
         }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--main-bg-color); /* 设置主背景颜色 */
+            background: black;
+            overflow: hidden;
         }
         .container {
             text-align: center;
             width: 100%;
             padding: 20px;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto; /* 允许垂直滚动 */
+            height: 100vh; /* 确保容器占满整个视口 */
         }
-        .header, .cook, .coat, .reception, .schedule {
-            background-color: var(--header-bg-color); /* 设置板块背景颜色 */
-            color: var(--header-text-color); /* 设置板块文字颜色 */
+        .header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
             padding: 20px;
             font-size: 24px;
-            border-radius: var(--border-radius); /* 设置板块圆角 */
+            border-radius: var(--border-radius);
             margin-bottom: 20px;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--header-border-color); /* 设置板块边框 */
+            border: 1px solid var(--header-border-color);
+            position: relative;
+            z-index: 2;
+            user-select: none; /* 禁止选择 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         .header img {
-            max-width: 50px; /* 设置logo最大宽度 */
-            margin-right: 10px; /* 设置logo与文字间距 */
+            max-width: 50px;
+            margin-right: 10px;
+            pointer-events: none; /* 禁止交互 */
+            -webkit-user-drag: none; /* 禁止下载 */
         }
         .menu {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
         .menu div {
             padding: 10px 20px;
-            color: var(--header-text-color); /* 设置板块按钮文字颜色 */
+            color: var(--header-text-color);
             cursor: pointer;
-            border-radius: var(--border-radius); /* 设置板块按钮圆角 */
+            border-radius: var(--border-radius);
             margin: 0 10px;
             transition: background-color 0.5s, transform 0.5s;
-            background-color: var(--header-bg-color); /* 设置板块按钮背景颜色 */
-            box-shadow: none; /* 移除板块按钮背影 */
+            background-color: var(--header-bg-color);
+            box-shadow: none;
+            position: relative;
+            z-index: 2;
+            user-select: none; /* 禁止选择 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         .menu div:hover {
-            transform: scale(1.1); /* 设置鼠标悬停效果 */
+            transform: scale(1.1);
         }
         .content {
             display: none;
             margin: 20px auto;
-            background-color: var(--content-bg-color); /* 设置内容区域背景颜色 */
+            background-color: var(--content-bg-color);
             padding: 20px;
-            border-radius: var(--border-radius); /* 设置内容区域圆角 */
+            border-radius: var(--border-radius);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%;
             opacity: 0;
-            transition: opacity 0.5s;
-            border: none; /* 移除子板块的边框 */
+            transition: opacity 0.5s, visibility 0s 0.5s;
+            border: none;
+            position: relative;
+            z-index: 2;
+            user-select: none; /* 禁止选择 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         .content.show {
             display: block;
             opacity: 1;
+            transition: opacity 0.5s;
         }
         .iframe-container {
             position: relative;
             overflow: hidden;
             padding-top: 150%;
+            position: relative;
+            z-index: 2;
         }
         .iframe-container iframe {
             position: absolute;
@@ -94,6 +117,8 @@
             width: 100%;
             height: 100%;
             border: none;
+            position: relative;
+            z-index: 2;
         }
         .editable {
             border: 1px dashed #ccc;
@@ -101,355 +126,221 @@
             border-radius: 5px;
             margin-bottom: 10px;
             font-weight: bold;
-            cursor: pointer;
+            position: relative;
+            z-index: 2;
         }
         .button {
             margin: 10px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-        }
-        .save-btn {
-            display: none;
-            background-color: var(--btn-save-bg-color); /* 设置保存按钮背景颜色 */
-            color: var(--btn-save-text-color); /* 设置保存按钮文字颜色 */
-        }
-        .editable[contenteditable="true"] + .save-btn {
-            display: inline-block;
-        }
-        .auth-container {
-            display: none;
-            text-align: center;
-            margin: 20px;
-        }
-        .auth-container input {
-            padding: 10px;
-            margin: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .auth-container button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: var(--btn-save-bg-color); /* 设置提交按钮背景颜色 */
-            color: var(--btn-save-text-color); /* 设置提交按钮文字颜色 */
-            cursor: pointer;
-        }
-        .upload-container {
-            display: none;
-            margin-top: 10px;
-        }
-        .media-container {
-            margin-top: 10px;
+            position: relative;
+            z-index: 2;
         }
         .media-container img, .media-container video {
             max-width: 100%;
-            border-radius: var(--border-radius); /* 设置媒体元素圆角 */
+            border-radius: var(--border-radius);
             margin-top: 10px;
-            pointer-events: none; /* 禁止点击 */
+            pointer-events: none;
+            position: relative;
+            z-index: 2;
         }
         .media-container video {
-            pointer-events: auto; /* 允许点击视频 */
+            pointer-events: auto;
             cursor: pointer;
+            position: relative;
+            z-index: 2;
         }
-        .media-actions {
-            display: none;
-            margin-top: 10px;
+
+        /* 添加这些样式以确保星空特效覆盖整个页面 */
+        .star-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none; /* 确保它不干扰其他元素 */
         }
-        .media-actions.show {
+        #canvas {
             display: block;
+            width: 100%;
+            height: 100%;
         }
-        .media-actions button {
-            margin: 5px;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #d9534f; /* 设置删除按钮背景颜色 */
-            color: white; /* 设置删除按钮文字颜色 */
-            cursor: pointer;
+
+        /* 响应式设计的媒体查询 */
+        @media (max-width: 768px) {
+            .header, .cook, .coat, .reception, .schedule {
+                padding: 10px;
+                font-size: 20px;
+            }
+            .menu div {
+                padding: 5px 10px;
+                margin: 0 5px;
+            }
+            .content {
+                width: 90%;
+            }
+        }
+        .content img {
+            display: block;
+            margin: 20px auto 0 auto;
+            max-width: 100px;
+            pointer-events: none; /* 禁止交互 */
+            -webkit-user-drag: none; /* 禁止下载 */
         }
     </style>
 </head>
 <body>
+    <div class="star-container"><canvas id="canvas"></canvas></div>
     <div class="container">
-        <!-- 主板块 -->
-        <div class="header" onclick="toggleAuthContainer()">
+        <div class="header">
             <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
             员工工作向导
         </div>
-        <div class="auth-container" id="authContainer">
-            <h2>请输入密码以编辑内容</h2>
-            <input type="password" id="authPassword" placeholder="密码">
-            <button onclick="authenticate()">提交</button>
-        </div>
-        <!-- 板块按钮 -->
         <div class="menu">
             <div class="cook" onclick="toggleContent('cookContent')">做餐</div>
             <div class="coat" onclick="toggleContent('coatContent')">裹粉</div>
             <div class="reception" onclick="toggleContent('receptionContent')">前台</div>
             <div class="schedule" onclick="toggleContent('scheduleContent')">工作排班列表</div>
         </div>
-        <!-- 做餐板块 -->
         <div id="cookContent" class="content">
             <h2>做餐步骤</h2>
-            <p id="cookText" class="editable">这里是做餐的具体内容...</p>
-            <div class="upload-container">
-                <input type="file" id="cookImageUpload" accept="image/*" multiple onchange="displayMedia('cookImageUpload', 'cookMediaContainer', 'image', 'saveBtn-cookImage')">
-                <input type="file" id="cookVideoUpload" accept="video/*" multiple onchange="displayMedia('cookVideoUpload', 'cookMediaContainer', 'video', 'saveBtn-cookVideo')">
-            </div>
-            <div id="cookMediaContainer" class="media-container">
-                <img src="https://i.ibb.co/Jsdfxpg/image.png" alt="示例图片">
-                <div class="media-actions">
-                    <button onclick="deleteMedia(this)">删除</button>
-                    <button onclick="replaceMedia(this, 'cookImageUpload')">替换</button>
-                </div>
-            </div>
-            <input type="hidden" id="cookImageData">
-            <input type="hidden" id="cookVideoData">
-            <button class="button save-btn" id="saveBtn-cookText" onclick="saveContent('cookText')">保存文本</button>
-            <button class="button save-btn" id="saveBtn-cookImage" onclick="saveMedia('cookImageData')">保存图片</button>
-            <button class="button save-btn" id="saveBtn-cookVideo" onclick="saveMedia('cookVideoData')">保存视频</button>
+            <p class="editable">这里是做餐的具体内容...</p>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
-        <!-- 裹粉板块 -->
         <div id="coatContent" class="content">
             <h2>裹粉步骤</h2>
-            <p id="coatText" class="editable">这里是裹粉的具体内容...</p>
-            <div class="upload-container">
-                <input type="file" id="coatImageUpload" accept="image/*" multiple onchange="displayMedia('coatImageUpload', 'coatMediaContainer', 'image', 'saveBtn-coatImage')">
-                <input type="file" id="coatVideoUpload" accept="video/*" multiple onchange="displayMedia('coatVideoUpload', 'coatMediaContainer', 'video', 'saveBtn-coatVideo')">
-            </div>
-            <div id="coatMediaContainer" class="media-container"></div>
-            <input type="hidden" id="coatImageData">
-            <input type="hidden" id="coatVideoData">
-            <button class="button save-btn" id="saveBtn-coatText" onclick="saveContent('coatText')">保存文本</button>
-            <button class="button save-btn" id="saveBtn-coatImage" onclick="saveMedia('coatImageData')">保存图片</button>
-            <button class="button save-btn" id="saveBtn-coatVideo" onclick="saveMedia('coatVideoData')">保存视频</button>
+            <p class="editable">这里是裹粉的具体内容...</p>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
-        <!-- 前台板块 -->
         <div id="receptionContent" class="content">
             <h2>前台步骤</h2>
-            <p id="receptionText" class="editable">这里是前台的具体内容...</p>
-            <div class="upload-container">
-                <input type="file" id="receptionImageUpload" accept="image/*" multiple onchange="displayMedia('receptionImageUpload', 'receptionMediaContainer', 'image', 'saveBtn-receptionImage')">
-                <input type="file" id="receptionVideoUpload" accept="video/*" multiple onchange="displayMedia('receptionVideoUpload', 'receptionMediaContainer', 'video', 'saveBtn-receptionVideo')">
-            </div>
-            <div id="receptionMediaContainer" class="media-container"></div>
-            <input type="hidden" id="receptionImageData">
-            <input type="hidden" id="receptionVideoData">
-            <button class="button save-btn" id="saveBtn-receptionText" onclick="saveContent('receptionText')">保存文本</button>
-            <button class="button save-btn" id="saveBtn-receptionImage" onclick="saveMedia('receptionImageData')">保存图片</button>
-            <button class="button save-btn" id="saveBtn-receptionVideo" onclick="saveMedia('receptionVideoData')">保存视频</button>
+            <p class="editable">这里是前台的具体内容...</p>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
-        <!-- 排班列表板块 -->
         <div id="scheduleContent" class="content">
             <h2>工作排班列表</h2>
             <div class="iframe-container">
                 <iframe src="https://sun548946498.github.io/123/"></iframe>
             </div>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
     </div>
 
     <script>
-        let currentContent = null; /* 当前显示的内容 */
-        const correctPassword = "12345678"; /* 认证密码 */
-        let isAuthenticated = false; /* 认证状态 */
+        let currentContent = null; // 初始化不显示任何内容
 
-        /* 切换认证容器显示状态 */
-        function toggleAuthContainer() {
-            const authContainer = document.getElementById('authContainer');
-            authContainer.style.display = authContainer.style.display === 'block' ? 'none' : 'block';
-        }
-
-        /* 认证用户输入的密码 */
-        function authenticate() {
-            const inputPassword = document.getElementById('authPassword').value;
-            if (inputPassword === correctPassword) {
-                document.getElementById('authContainer').style.display = 'none';
-                enableEditing();
-                alert('认证成功！您现在可以编辑内容。');
-                isAuthenticated = true;
-                document.querySelectorAll('.upload-container').forEach(container => {
-                    container.style.display = 'block';
-                });
-                document.querySelectorAll('.media-container img').forEach(img => {
-                    img.style.pointerEvents = 'auto';
-                    img.style.cursor = 'pointer';
-                    img.addEventListener('click', function(event) {
-                        if (isAuthenticated) {
-                            const mediaActions = this.nextElementSibling;
-                            if (mediaActions) {
-                                mediaActions.classList.toggle('show');
-                            }
-                        }
-                    });
-                });
-            } else {
-                alert('密码错误，请重试。');
-            }
-        }
-
-        /* 启用内容编辑功能 */
-        function enableEditing() {
-            const editables = document.querySelectorAll('.editable');
-            const saveButtons = document.querySelectorAll('.save-btn');
-
-            editables.forEach(element => {
-                element.addEventListener('click', () => {
-                    if (!isAuthenticated) return;
-                    element.contentEditable = true;
-                    element.focus();
-                    document.getElementById('saveBtn-' + element.id).style.display = 'inline-block';
-                });
-            });
-
-            saveButtons.forEach(button => {
-                button.style.display = 'none'; // 初始状态隐藏
-            });
-        }
-
-        /* 切换显示的内容 */
         function toggleContent(contentId) {
             const newContent = document.getElementById(contentId);
             if (currentContent === newContent) {
                 newContent.classList.remove('show');
-                setTimeout(() => newContent.style.display = 'none', 500);
+                newContent.style.display = 'none';
                 currentContent = null;
-                return;
-            }
-            if (currentContent) {
-                currentContent.classList.remove('show');
-                setTimeout(() => {
+            } else {
+                if (currentContent) {
+                    currentContent.classList.remove('show');
                     currentContent.style.display = 'none';
-                    showNewContent(newContent);
-                }, 500);
-            } else {
-                showNewContent(newContent);
+                }
+                newContent.style.display = 'block';
+                setTimeout(() => newContent.classList.add('show'), 10);
+                currentContent = newContent;
             }
         }
 
-        /* 显示新的内容 */
-        function showNewContent(newContent) {
-            newContent.style.display = 'block';
-            setTimeout(() => newContent.classList.add('show'), 10);
-            currentContent = newContent;
-        }
-
-        /* 保存内容 */
-        function saveContent(elementId) {
-            const element = document.getElementById(elementId);
-            element.contentEditable = false;
-            document.getElementById('saveBtn-' + elementId).style.display = 'none';
-
-            console.log('Saved content:', element.innerText);
-            alert('内容已保存');
-        }
-
-        /* 保存媒体内容 */
-        function saveMedia(dataId) {
-            const mediaData = document.getElementById(dataId).value;
-            console.log('Saved media:', mediaData);
-            alert('媒体内容已保存');
-            document.getElementById('saveBtn-' + dataId.replace('Data', '')).style.display = 'none';
-        }
-
-        /* 显示上传的媒体 */
-        function displayMedia(uploadId, containerId, type, saveBtnId) {
-            const fileInput = document.getElementById(uploadId);
-            const container = document.getElementById(containerId);
-            const files = fileInput.files;
-
-            Array.from(files).forEach(file => {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    let mediaElement;
-                    let dataInputId;
-
-                    if (type === 'image') {
-                        mediaElement = document.createElement('img');
-                        mediaElement.src = e.target.result;
-                        dataInputId = containerId.replace('MediaContainer', 'ImageData');
-                    } else if (type === 'video') {
-                        mediaElement = document.createElement('video');
-                        mediaElement.src = e.target.result;
-                        mediaElement.controls = true;
-                        dataInputId = containerId.replace('MediaContainer', 'VideoData');
-                    }
-
-                    const actionsContainer = document.createElement('div');
-                    actionsContainer.classList.add('media-actions');
-                    
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = '删除';
-                    deleteBtn.onclick = function() {
-                        container.removeChild(mediaElement);
-                        container.removeChild(actionsContainer);
-                        document.getElementById(saveBtnId).style.display = 'none';
-                    };
-
-                    const replaceBtn = document.createElement('button');
-                    replaceBtn.textContent = '替换';
-                    replaceBtn.onclick = function() {
-                        fileInput.click();
-                    };
-
-                    actionsContainer.appendChild(deleteBtn);
-                    actionsContainer.appendChild(replaceBtn);
-                    
-                    container.appendChild(mediaElement);
-                    container.appendChild(actionsContainer);
-
-                    document.getElementById(dataInputId).value = e.target.result;
-                    document.getElementById(saveBtnId).style.display = 'inline-block';
-                }
-
-                if (file) {
-                    reader.readAsDataURL(file);
-                }
-            });
-        }
-
-        /* 切换媒体操作按钮显示状态 */
-        function toggleMediaActions(mediaElement) {
-            if (!isAuthenticated) return;
-            const actionsContainer = mediaElement.nextElementSibling;
-            if (actionsContainer.classList.contains('show')) {
-                actionsContainer.classList.remove('show');
-            } else {
-                actionsContainer.classList.add('show');
+        // 星空动画脚本
+        var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        w = canvas.width = window.innerWidth,
+        h = canvas.height = window.innerHeight,
+        hue = 217,
+        stars = [],
+        count = 0,
+        maxStars = 3000;
+        var canvas2 = document.createElement('canvas'),
+        ctx2 = canvas2.getContext('2d');
+        canvas2.width = 100;
+        canvas2.height = 100;
+        var half = canvas2.width / 2,
+        gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+        gradient2.addColorStop(0.025, '#CCC');
+        gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+        gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+        gradient2.addColorStop(1, 'transparent');
+        ctx2.fillStyle = gradient2;
+        ctx2.beginPath();
+        ctx2.arc(half, half, half, 0, Math.PI * 2);
+        ctx2.fill();
+        
+        function random(min, max) {
+            if (arguments.length < 2) {
+                max = min;
+                min = 0;
             }
-        }
-
-        /* 删除媒体 */
-        function deleteMedia(button) {
-            const mediaElement = button.parentElement.previousElementSibling;
-            const actionsContainer = button.parentElement;
-            const container = actionsContainer.parentElement;
-            container.removeChild(mediaElement);
-            container.removeChild(actionsContainer);
-        }
-
-        /* 替换媒体 */
-        function replaceMedia(button, uploadId) {
-            const fileInput = document.getElementById(uploadId);
-            const container = button.parentElement.parentElement;
-
-            fileInput.onchange = function() {
-                const file = fileInput.files[0];
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const mediaElement = container.querySelector('img, video');
-                    mediaElement.src = e.target.result;
-                }
-                if (file) {
-                    reader.readAsDataURL(file);
-                }
+            if (min > max) {
+                var hold = max;
+                max = min;
+                min = hold;
             }
-
-            fileInput.click();
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+
+        function maxOrbit(x, y) {
+            var max = Math.max(x, y),
+            diameter = Math.round(Math.sqrt(max * max + max * max));
+            return diameter / 2;
+        }
+
+        var Star = function() {
+            this.orbitRadius = random(maxOrbit(w, h));
+            this.radius = random(60, this.orbitRadius) / 8;
+            this.orbitX = w / 2;
+            this.orbitY = h / 2;
+            this.timePassed = random(0, maxStars);
+            this.speed = random(this.orbitRadius) / 50000;
+            this.alpha = random(2, 10) / 10;
+            count++;
+            stars[count] = this;
+        }
+
+        Star.prototype.draw = function() {
+            var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+            y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+            twinkle = random(10);
+            if (twinkle === 1 && this.alpha > 0) {
+                this.alpha -= 0.05;
+            } else if (twinkle === 2 && this.alpha < 1) {
+                this.alpha += 0.05;
+            }
+            ctx.globalAlpha = this.alpha;
+            ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+            this.timePassed += this.speed;
+        }
+
+        for (var i = 0; i < maxStars; i++) {
+            new Star();
+        }
+
+        function animation() {
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.globalAlpha = 0.5;
+            ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+            ctx.fillRect(0, 0, w, h)
+            ctx.globalCompositeOperation = 'lighter';
+            for (var i = 1, l = stars.length; i < l; i++) {
+                stars[i].draw();
+            }
+            window.requestAnimationFrame(animation);
+        }
+
+        animation();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            w = canvas.width;
+            h = canvas.height;
+        });
     </script>
 </body>
 </html>
