@@ -204,14 +204,7 @@
         <div id="cookContent" class="content">
             <h2>做餐步骤🍔</h2>
             <p class="editable">这里是做餐的具体内容...</p>
-            <img id="cookImage" src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
-            <div>
-                <input type="file" id="fileInput" accept="image/*" style="display:none;">
-                <button class="button" onclick="document.getElementById('fileInput').click();">上传图片</button>
-                <button class="button" onclick="replaceImage()">替换图片</button>
-                <button class="button" onclick="deleteImage()">删除图片</button>
-                <button class="button" onclick="saveImage()">保存图片</button>
-            </div>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
         <div id="coatContent" class="content">
             <h2>裹粉步骤🙌🏻</h2>
@@ -312,7 +305,7 @@
                     <div class="correct-answer">C：淤血，内脏</div>
                     <div class="separator"></div>
                     <div class="question">7. 【解冻】的程序：冻品在解冻槽中（）摆放，不得交叉重叠（全鸡除外）。</div>
-                    <div的correct-answer">A：平铺</div>
+                    <div class="correct-answer">A：平铺</div>
                     <div class="separator"></div>
                     <div class="question">8. 腌制类产品解冻后最长保存时间为（）小时。</div>
                     <div class="correct-answer">D：48</div>
@@ -573,49 +566,25 @@
             w = canvas.width;
             h = canvas.height;
         });
-
-        // 图片上传、替换、删除、保存功能
-        document.getElementById('fileInput').addEventListener('change', function(event) {
-            const reader = new FileReader();
-            reader.onload = function() {
-                document.getElementById('cookImage').src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        });
-
-        function replaceImage() {
+    </script>
+    <script>
+        function uploadFile() {
+            const form = document.getElementById('uploadForm');
             const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length > 0) {
-                const reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('cookImage').src = reader.result;
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                alert('请先选择一张图片进行替换');
-            }
-        }
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('upload_preset', 'YOUR_UPLOAD_PRESET'); // 替换为您的Cloudinary上传预设
 
-        function deleteImage() {
-            document.getElementById('cookImage').src = '';
-        }
-
-        function saveImage() {
-            const imgSrc = document.getElementById('cookImage').src;
-            // 假设使用fetch方法发送请求保存图片到服务器，实际应用中需要替换为真实的保存逻辑
-            fetch('your-server-endpoint', {
+            fetch('https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/upload', { // 替换为您的Cloudinary云名称
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ image: imgSrc })
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
-                alert('图片保存成功');
+                alert('文件上传成功：' + data.secure_url);
             })
             .catch(error => {
-                console.error('图片保存失败:', error);
+                console.error('文件上传失败:', error);
             });
         }
     </script>
