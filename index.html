@@ -169,12 +169,21 @@
         }
         .exam-answers {
             margin: 10px 0;
+            padding-left: 20px;
         }
         .exam-answers p {
             margin: 5px 0;
+            line-height: 1.6;
+        }
+        .question {
+            font-weight: bold;
         }
         .correct-answer {
             color: green; /* 正确答案文字颜色改为绿色 */
+        }
+        .separator {
+            border-top: 1px solid #cccccc;
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -193,17 +202,17 @@
             <div class="exam" onclick="toggleContent('examContent')">考试答案</div> <!-- 新增的菜单项 -->
         </div>
         <div id="cookContent" class="content">
-            <h2>做餐步骤</h2>
+            <h2>做餐步骤🍔</h2>
             <p class="editable">这里是做餐的具体内容...</p>
             <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
         <div id="coatContent" class="content">
-            <h2>裹粉步骤</h2>
+            <h2>裹粉步骤🙌🏻</h2>
             <p class="editable">这里是裹粉的具体内容...</p>
             <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
         <div id="receptionContent" class="content">
-            <h2>前台步骤</h2>
+            <h2>前台步骤👩🏻‍💼</h2>
             <p class="editable">这里是前台的具体内容...</p>
             <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
@@ -215,98 +224,732 @@
             <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
         </div>
         <div id="examContent" class="content"> <!-- 新增的内容块 -->
-            <h2>考试答案</h2>
+            <h2>考试答案😋</h2>
             <div class="exam-section" onclick="toggleExamSection(this)">
                 <h3>新员工入职简介</h3>
                 <div class="exam-content exam-answers">
-                    <p>1. 华莱士的使命是： <span class="correct-answer">D（以上皆是）</span></p>
-                    <p>2. 华莱士的目标观： <span class="correct-answer">B（创造顾客）</span></p>
-                    <p>3. 有以下情况员工必须洗手： <span class="correct-answer">D（以上皆是）</span></p>
-                    <p>4. 仪容仪表中要求指甲： <span class="correct-answer">D（修剪整齐）</span></p>
-                    <p>5. 仪容仪表中要求制服： <span class="correct-answer">C（第三粒纽扣可不扣）</span></p>
-                    <p>6. 餐厅班表由店长提前： <span class="correct-answer">A（1周）</span></p>
-                    <p>7. 女生上岗前可以化淡妆，可以佩戴耳环耳饰。 <span class="correct-answer">错</span></p>
-                    <p>8. 仪容仪表中要求妆容： <span class="correct-answer">C（不可佩戴首饰）</span></p>
-                    <p>9. 我们的产品观： <span class="correct-answer">对</span></p>
-                    <p>10. 洗手消毒的步骤是： <span class="correct-answer">对</span></p>
-                    <p>11. 员工的人身安全有： <span class="correct-answer">A（用电安全）</span></p>
-                    <p>12. 我们的产品观： <span class="correct-answer">B（产品差异化）</span></p>
-                    <p>13. 仪容仪表中要求妆容： <span class="correct-answer">对</span></p>
-                    <p>14. 食品安全是生命线，是餐饮从业人员的： <span class="correct-answer">B（第一要务）</span></p>
-                    <p>15. 仪容仪表中要求头发： <span class="correct-answer">C（发网）</span></p>
-                    <p>16. 公司坚持将发展机会留给内部员工，对外也可以加盟。 <span class="correct-answer">错</span></p>
-                    <p>17. 餐厅使用华莱士认可的食品、包装材料、消毒用品，且： <span class="correct-answer">A（在保存期内、无变质）</span></p>
-                    <p>18. 华莱士的目标观： <span class="correct-answer">B（创造顾客）</span></p>
+                    <div class="question">1. 华莱士的使命是：</div>
+                    <div class="correct-answer">D（以上皆是）</div>
+                    <div class="separator"></div>
+                    <div class="question">2. 华莱士的目标观：</div>
+                    <div class="correct-answer">B（创造顾客）</div>
+                    <div class="separator"></div>
+                    <div class="question">3. 有以下情况员工必须洗手：</div>
+                    <div class="correct-answer">D（以上皆是）</div>
+                    <div class="separator"></div>
+                    <div class="question">4. 仪容仪表中要求指甲：</div>
+                    <div class="correct-answer">D（修剪整齐）</div>
+                    <div class="separator"></div>
+                    <div class="question">5. 仪容仪表中要求制服：</div>
+                    <div class="correct-answer">C（第三粒纽扣可不扣）</div>
+                    <div class="separator"></div>
+                    <div class="question">6. 餐厅班表由店长提前：</div>
+                    <div class="correct-answer">A（1周）</div>
+                    <div class="separator"></div>
+                    <div class="question">7. 女生上岗前可以化淡妆，可以佩戴耳环耳饰。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">8. 仪容仪表中要求妆容：</div>
+                    <div class="correct-answer">C（不可佩戴首饰）</div>
+                    <div class="separator"></div>
+                    <div class="question">9. 我们的产品观：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">10. 洗手消毒的步骤是：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">11. 员工的人身安全有：</div>
+                    <div class="correct-answer">A（用电安全）</div>
+                    <div class="separator"></div>
+                    <div class="question">12. 我们的产品观：</div>
+                    <div class="correct-answer">B（产品差异化）</div>
+                    <div class="separator"></div>
+                    <div class="question">13. 仪容仪表中要求妆容：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">14. 食品安全是生命线，是餐饮从业人员的：</div>
+                    <div class="correct-answer">B（第一要务）</div>
+                    <div class="separator"></div>
+                    <div class="question">15. 仪容仪表中要求头发：</div>
+                    <div class="correct-answer">C（发网）</div>
+                    <div class="separator"></div>
+                    <div class="question">16. 公司坚持将发展机会留给内部员工，对外也可以加盟。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">17. 餐厅使用华莱士认可的食品、包装材料、消毒用品，且：</div>
+                    <div class="correct-answer">A（在保存期内、无变质）</div>
+                    <div class="separator"></div>
+                    <div class="question">18. 华莱士的目标观：</div>
+                    <div class="correct-answer">B（创造顾客）</div>
                 </div>
             </div>
             <div class="exam-section" onclick="toggleExamSection(this)">
                 <h3>生产区-解冻腌制</h3>
                 <div class="exam-content exam-answers">
-                    <p>1. 每隔（）分钟翻动一次解冻槽中的冻品，并进行换水，避免冻品之间粘连影响解冻
-                        正确答案： <span class="correct-answer">B：15</span></p>
-                    <p>2. 完全解冻的标准：
-                        正确答案： <span class="correct-answer">对</span></p>
-                    <p>3. 在拿取冷冻物料时要查看冷冻冰箱的温度是否在-15°℃到-18°℃
-                        正确答案： <span class="correct-answer">对</span></p>
-                    <p>4. 冰水的制作：将（）：（）的冰和水混合充分搅拌至冰块几乎溶解，静置1分钟，捞出不能溶解的冰块
-                        正确答案： <span class="correct-answer">B：9:16</span></p>
-                    <p>5. 【腌制】的步骤：检查腌制品→冲洗→沥水→（）→调配腌制液→腌制产品→记录保存时间、开始使用时间→清洁工作区域
-                        正确答案： <span class="correct-answer">B：配制冰水</span></p>
-                    <p>6. 【全鸡腌制】解冻后在检查全鸡时要去除鸡毛、（）、（）、多余的油脂等
-                        正确答案： <span class="correct-answer">C：淤血，内脏</span></p>
-                    <p>7. 【解冻】的程序：冻品在解冻槽中（）摆放，不得交叉重叠（全鸡除外)
-                        正确答案： <span class="correct-answer">A：平铺</span></p>
-                    <p>8. 腌制类产品解冻后最长保存时间为（）小时
-                        正确答案： <span class="correct-answer">D：48</span></p>
-                    <p>9. 腌制好的产品在腌制机中不能超过10分钟，否则造成产品口味偏咸
-                        正确答案： <span class="correct-answer">对</span></p>
-                    <p>10. 使用弗兰卡解冻槽解冻腿肉或者西装鸡等冻品时，可以不使用自封袋进行解冻
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>11. 腌制品腌制后（）小时可用，保存时间48小时（从解冻完成开始计算)
-                        正确答案： <span class="correct-answer">B：2</span></p>
-                    <p>12. 冷藏解冻：将产品用周转箱装好放入冷藏冰箱解冻，冷藏冰箱温度为1°℃-5°℃
-                        正确答案： <span class="correct-answer">对</span></p>
-                    <p>13. 冻品有浸水解冻和常温解冻两种方式解冻
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>14. 浸水解冻时因夏天、冬天的水温不一样，所以冬天可以热水解冻
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>15. 解冻好的腌制品要冲洗（）分钟
-                        正确答案： <span class="correct-answer">D：5</span></p>
-                    <p>16. 完全解冻又无法立即腌制的产品要及时放进冷藏冰箱，并记录产品解冻完成时间
-                        正确答案： <span class="correct-answer">对</span></p>
-                    <p>17. 使用弗兰卡解冻槽解冻腿肉或者西装鸡等冻品时，可以不使用自封袋进行解冻
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>18. 每隔30分钟翻动一次解冻槽中的冻品，并进行换水，避免冻品之间粘连影响解冻。
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>19. 腌制好的产品不能在腌制机中不能超过（）分钟，否则造成产品口味偏咸
-                        正确答案： <span class="correct-answer">A：10</span></p>
-                    <p>20. 在拿取冷冻物料时要查看冷冻冰箱的温度是否在-15°℃到-18°℃
-                        正确答案： <span class="correct-answer">对</span></p>
+                    <div class="question">1. 每隔（）分钟翻动一次解冻槽中的冻品，并进行换水，避免冻品之间粘连影响解冻。</div>
+                    <div class="correct-answer">B：15</div>
+                    <div class="separator"></div>
+                    <div class="question">2. 完全解冻的标准：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">3. 在拿取冷冻物料时要查看冷冻冰箱的温度是否在-15°℃到-18°℃。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">4. 冰水的制作：将（）：（）的冰和水混合充分搅拌至冰块几乎溶解，静置1分钟，捞出不能溶解的冰块。</div>
+                    <div class="correct-answer">B：9:16</div>
+                    <div class="separator"></div>
+                    <div class="question">5. 【腌制】的步骤：检查腌制品→冲洗→沥水→（）→调配腌制液→腌制产品→记录保存时间、开始使用时间→清洁工作区域。</div>
+                    <div class="correct-answer">B：配制冰水</div>
+                    <div class="separator"></div>
+                    <div class="question">6. 【全鸡腌制】解冻后在检查全鸡时要去除鸡毛、（）、（）、多余的油脂等。</div>
+                    <div class="correct-answer">C：淤血，内脏</div>
+                    <div class="separator"></div>
+                    <div class="question">7. 【解冻】的程序：冻品在解冻槽中（）摆放，不得交叉重叠（全鸡除外）。</div>
+                    <div class="correct-answer">A：平铺</div>
+                    <div class="separator"></div>
+                    <div class="question">8. 腌制类产品解冻后最长保存时间为（）小时。</div>
+                    <div class="correct-answer">D：48</div>
+                    <div class="separator"></div>
+                    <div class="question">9. 腌制好的产品在腌制机中不能超过10分钟，否则造成产品口味偏咸。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">10. 使用弗兰卡解冻槽解冻腿肉或者西装鸡等冻品时，可以不使用自封袋进行解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">11. 腌制品腌制后（）小时可用，保存时间48小时（从解冻完成开始计算）。</div>
+                    <div class="correct-answer">B：2</div>
+                    <div class="separator"></div>
+                    <div class="question">12. 冷藏解冻：将产品用周转箱装好放入冷藏冰箱解冻，冷藏冰箱温度为1°℃-5°℃。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">13. 冻品有浸水解冻和常温解冻两种方式解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">14. 浸水解冻时因夏天、冬天的水温不一样，所以冬天可以热水解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">15. 解冻好的腌制品要冲洗（）分钟。</div>
+                    <div class="correct-answer">D：5</div>
+                    <div class="separator"></div>
+                    <div class="question">16. 完全解冻又无法立即腌制的产品要及时放进冷藏冰箱，并记录产品解冻完成时间。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">17. 使用弗兰卡解冻槽解冻腿肉或者西装鸡等冻品时，可以不使用自封袋进行解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">18. 每隔30分钟翻动一次解冻槽中的冻品，并进行换水，避免冻品之间粘连影响解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">19. 腌制好的产品不能在腌制机中不能超过（）分钟，否则造成产品口味偏咸。</div>
+                    <div class="correct-answer">A：10</div>
+                    <div class="separator"></div>
+                    <div class="question">20. 在拿取冷冻物料时要查看冷冻冰箱的温度是否在-15°℃到-18°℃。</div>
+                    <div class="correct-answer">对</div>
                 </div>
             </div>
             <div class="exam-section" onclick="toggleExamSection(this)">
                 <h3>生产区-裹粉炸制</h3>
                 <div class="exam-content exam-answers">
-                    <p>1. 裹粉方式中的压：用（）按压，注意力度适中，确保每个半成品都能沾满面粉
-                        正确答案： <span class="correct-answer">B：掌心</span></p>
-                    <p>2. 摇篮的作用：避免产品在炸制过程中粘连在一起，影响产品外观，严重的粘连在一起会导致产品不熟。
-                        正确答案： <span class="correct-answer">对</span></p>
-                    <p>3. 半成品倒入裹粉盆前要将腌制汁滴干，避免腌制汁过多造成面粉（），影响面粉应产率。
-                        正确答案： <span class="correct-answer">C：结块</span></p>
-                    <p>4. 裹粉的方式：三压、三拍、三抖
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>5. 产品烹炸结束计时器响起，提起炸蓝，滴油15-20秒。
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>6. 产品下锅前需检查炸锅温度是否达到（）℃
-                        正确答案： <span class="correct-answer">C: 175±5</span></p>
-                    <p>7. 检查面粉量是否达到裹粉盆的1/2到2/3之间的原因：
-                        正确答案： <span class="correct-answer">C：粉量不足会造成成品裸露</span></p>
-                    <p>8. 油的七大敌人：（），高温，清洁剂，空气，（），碳水化合物，金属
-                        正确答案： <span class="correct-answer">C:水，盐</span></p>
-                    <p>9. 产品下锅前需检查炸锅温度是否达到204±5°℃
-                        正确答案： <span class="correct-answer">错</span></p>
-                    <p>10. 裹粉前需要佩戴裹粉围裙
-                        正确答案： <span class="correct-answer">对</span></p>
+                    <div class="question">1. 裹粉方式中的压：用（）按压，注意力度适中，确保每个半成品都能沾满面粉。</div>
+                    <div class="correct-answer">B：掌心</div>
+                    <div class="separator"></div>
+                    <div class="question">2. 摇篮的作用：避免产品在炸制过程中粘连在一起，影响产品外观，严重的粘连在一起会导致产品不熟。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">3. 半成品倒入裹粉盆前要将腌制汁滴干，避免腌制汁过多造成面粉（），影响面粉应产率。</div>
+                    <div class="correct-answer">C：结块</div>
+                    <div class="separator"></div>
+                    <div class="question">4. 裹粉的方式：三压、三拍、三抖。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">5. 产品烹炸结束计时器响起，提起炸蓝，滴油15-20秒。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">6. 产品下锅前需检查炸锅温度是否达到（)℃。</div>
+                    <div class="correct-answer">C: 175±5</div>
+                    <div class="separator"></div>
+                    <div class="question">7. 检查面粉量是否达到裹粉盆的1/2到2/3之间的原因：</div>
+                    <div class="correct-answer">C：粉量不足会造成成品裸露</div>
+                    <div class="separator"></div>
+                    <div class="question">8. 油的七大敌人：（），高温，清洁剂，空气，（），碳水化合物，金属。</div>
+                    <div class="correct-answer">C:水，盐</div>
+                    <div class="separator"></div>
+                    <div class="question">9. 产品下锅前需检查炸锅温度是否达到204±5°℃。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">10. 裹粉前需要佩戴裹粉围裙。</div>
+                    <div class="correct-answer">对</div>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>生产区-微波烤制</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是生产区-微波烤制的具体内容...</p>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>生产区-汉堡制作</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是生产区-汉堡制作的具体内容...</p>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>柜台区-服务六步曲</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是柜台区-服务六步曲的具体内容...</p>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>开店-柜台区/生产区</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是开店-柜台区/生产区的具体内容...</p>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>打烊-柜台区/生产区</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是打烊-柜台区/生产区的具体内容...</p>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>食品安全-基础篇</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是食品安全-基础篇的具体内容...</p>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>顾客服务-基础服务</h3>
+                <div class="exam-content">
+                    <p class="editable">这里是顾客服务-基础服务的具体内容...</p>
+                </div>
+            </div>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+        </div>
+    </div>
+    <script>
+        let currentContent = null;
+        const menuButtons = document.querySelectorAll('.menu div');
+
+        function toggleContent(contentId) {
+            const newContent = document.getElementById(contentId);
+            const button = document.querySelector(`.${contentId.replace('Content', '')}`);
+            const isActive = button.classList.contains('active');
+
+            if (currentContent === newContent && isActive) {
+                newContent.classList.remove('show');
+                newContent.style.display = 'none';
+                button.classList.remove('active');
+                currentContent = null;
+            } else {
+                if (currentContent) {
+                    currentContent.classList.remove('show');
+                    currentContent.style.display = 'none';
+                    document.querySelector('.menu div.active').classList.remove('active');
+                }
+                newContent.style.display = 'block';
+                setTimeout(() => newContent.classList.add('show'), 10);
+                button.classList.add('active');
+                currentContent = newContent;
+            }
+        }
+
+        function toggleExamSection(section) {
+            const content = section.querySelector('.exam-content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.addEventListener('click', function(event) {
+            const isClickInside = event.target.closest('.content') || event.target.closest('.menu div');
+            if (!isClickInside && currentContent) {
+                currentContent.classList.remove('show');
+                currentContent.style.display = 'none';
+                document.querySelector('.menu div.active').classList.remove('active');
+                currentContent = null;
+            }
+        });
+
+        // 星空动画脚本
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let w = canvas.width = window.innerWidth;
+        let h = canvas.height = window.innerHeight;
+        const hue = 280; // 将颜色设置为紫色的色相值
+        const stars = [];
+        let count = 0;
+        const maxStars = 3000;
+
+        const canvas2 = document.createElement('canvas');
+        const ctx2 = canvas2.getContext('2d');
+        canvas2.width = 100;
+        canvas2.height = 100;
+        const half = canvas2.width / 2;
+        const gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+        gradient2.addColorStop(0.025, '#CCC');
+        gradient2.addColorStop(0.1, `hsl(${hue}, 61%, 33%)`);
+        gradient2.addColorStop(0.25, `hsl(${hue}, 64%, 6%)`);
+        gradient2.addColorStop(1, 'transparent');
+        ctx2.fillStyle = gradient2;
+        ctx2.beginPath();
+        ctx2.arc(half, half, half, 0, Math.PI * 2);
+        ctx2.fill();
+
+        function random(min, max) {
+            if (arguments.length < 2) {
+                max = min;
+                min = 0;
+            }
+            if (min > max) {
+                const hold = max;
+                max = min;
+                min = hold;
+            }
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function maxOrbit(x, y) {
+            const max = Math.max(x, y);
+            const diameter = Math.round(Math.sqrt(max * max + max * max));
+            return diameter / 2;
+        }
+
+        class Star {
+            constructor() {
+                this.orbitRadius = random(maxOrbit(w, h));
+                this.radius = random(60, this.orbitRadius) / 8;
+                this.orbitX = w / 2;
+                this.orbitY = h / 2;
+                this.timePassed = random(0, maxStars);
+                this.speed = random(this.orbitRadius) / 50000;
+                this.alpha = random(2, 10) / 10;
+                stars[count] = this;
+                count++;
+            }
+
+            draw() {
+                const x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX;
+                const y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY;
+                const twinkle = random(10);
+
+                if (twinkle === 1 && this.alpha > 0) {
+                    this.alpha -= 0.05;
+                } else if (twinkle === 2 && this.alpha < 1) {
+                    this.alpha += 0.05;
+                }
+
+                ctx.globalAlpha = this.alpha;
+                ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+                this.timePassed += this.speed;
+            }
+        }
+
+        for (let i = 0; i < maxStars; i++) {
+            new Star();
+        }
+
+        function animation() {
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.globalAlpha = 0.5;
+            ctx.fillStyle = `hsla(${hue}, 64%, 6%, 2)`;
+            ctx.fillRect(0, 0, w, h);
+
+            ctx.globalCompositeOperation = 'lighter';
+            stars.forEach(star => star.draw());
+
+            requestAnimationFrame(animation);
+        }
+
+        animation();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            w = canvas.width;
+            h = canvas.height;
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>员工工作向导</title>
+    <style>
+        :root {
+            --main-bg-color: #f7f7f7;
+            --header-bg-color: #ffffff;
+            --header-text-color: #6a82fb;
+            --header-border-color: #cccccc;
+            --content-bg-color: #ffffff;
+            --border-radius: 20px;
+            --content-border-color: #cccccc;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            position: relative;
+            overflow-y: auto; 
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .header, .menu div, .content {
+            border-radius: var(--border-radius);
+            border: 1px solid var(--header-border-color);
+            position: relative;
+            z-index: 2;
+            user-select: none;
+            font-weight: bold; /* 加粗文字 */
+        }
+        .header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            padding: 20px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header img {
+            max-width: 50px;
+            margin-right: 10px;
+            pointer-events: none;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .menu div {
+            padding: 10px 20px;
+            color: var(--header-text-color);
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.5s, transform 0.5s;
+            background-color: var(--header-bg-color);
+            box-shadow: none;
+        }
+        .menu div.active {
+            transform: scale(1.1);
+        }
+        .content {
+            display: none;
+            margin: 20px auto;
+            background-color: var(--content-bg-color);
+            padding: 20px;
+            width: 80%;
+            opacity: 0;
+            transition: opacity 0.5s, visibility 0s 0.5s;
+            border: none;
+        }
+        .content.show {
+            display: block;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        .media-container img, .media-container video {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            margin-top: 10px;
+        }
+        .media-container video {
+            cursor: pointer;
+        }
+        .star-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        #canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+        @media (max-width: 768px) {
+            .header, .menu div {
+                padding: 10px;
+                font-size: 20px;
+            }
+            .menu div {
+                padding: 5px 10px;
+                margin: 0 5px;
+            }
+            .content {
+                width: 90%;
+            }
+        }
+        .content img {
+            display: block;
+            margin: 20px auto 0;
+            max-width: 100px;
+            pointer-events: none;
+        }
+        .exam-section {
+            text-align: left;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        .exam-section h3 {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .exam-content {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--content-border-color);
+        }
+        .exam-answers {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .exam-answers p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .correct-answer {
+            color: green; /* 正确答案文字颜色改为绿色 */
+        }
+        .separator {
+            border-top: 1px solid #cccccc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="star-container"><canvas id="canvas"></canvas></div>
+    <div class="container">
+        <div class="header">
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+            员工工作向导
+        </div>
+        <div class="menu">
+            <div class="cook" onclick="toggleContent('cookContent')">做餐</div>
+            <div class="coat" onclick="toggleContent('coatContent')">裹粉</div>
+            <div class="reception" onclick="toggleContent('receptionContent')">前台</div>
+            <div class="schedule" onclick="toggleContent('scheduleContent')">工作排班列表</div>
+            <div class="exam" onclick="toggleContent('examContent')">考试答案</div> <!-- 新增的菜单项 -->
+        </div>
+        <div id="cookContent" class="content">
+            <h2>做餐步骤🍔</h2>
+            <p class="editable">这里是做餐的具体内容...</p>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+        </div>
+        <div id="coatContent" class="content">
+            <h2>裹粉步骤🙌🏻</h2>
+            <p class="editable">这里是裹粉的具体内容...</p>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+        </div>
+        <div id="receptionContent" class="content">
+            <h2>前台步骤👩🏻‍💼</h2>
+            <p class="editable">这里是前台的具体内容...</p>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+        </div>
+        <div id="scheduleContent" class="content">
+            <h2>工作排班列表</h2>
+            <div class="iframe-container">
+                <iframe src="https://sun548946498.github.io/123/"></iframe>
+            </div>
+            <img src="https://s2.loli.net/2024/07/17/rkg2HGuOUdy38vp.png" alt="Logo">
+        </div>
+        <div id="examContent" class="content"> <!-- 新增的内容块 -->
+            <h2>考试答案😋</h2>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>新员工入职简介</h3>
+                <div class="exam-content exam-answers">
+                    <div class="question">1. 华莱士的使命是：</div>
+                    <div class="correct-answer">D（以上皆是）</div>
+                    <div class="separator"></div>
+                    <div class="question">2. 华莱士的目标观：</div>
+                    <div class="correct-answer">B（创造顾客）</div>
+                    <div class="separator"></div>
+                    <div class="question">3. 有以下情况员工必须洗手：</div>
+                    <div class="correct-answer">D（以上皆是）</div>
+                    <div class="separator"></div>
+                    <div class="question">4. 仪容仪表中要求指甲：</div>
+                    <div class="correct-answer">D（修剪整齐）</div>
+                    <div class="separator"></div>
+                    <div class="question">5. 仪容仪表中要求制服：</div>
+                    <div class="correct-answer">C（第三粒纽扣可不扣）</div>
+                    <div class="separator"></div>
+                    <div class="question">6. 餐厅班表由店长提前：</div>
+                    <div class="correct-answer">A（1周）</div>
+                    <div class="separator"></div>
+                    <div class="question">7. 女生上岗前可以化淡妆，可以佩戴耳环耳饰。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">8. 仪容仪表中要求妆容：</div>
+                    <div class="correct-answer">C（不可佩戴首饰）</div>
+                    <div class="separator"></div>
+                    <div class="question">9. 我们的产品观：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">10. 洗手消毒的步骤是：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">11. 员工的人身安全有：</div>
+                    <div class="correct-answer">A（用电安全）</div>
+                    <div class="separator"></div>
+                    <div class="question">12. 我们的产品观：</div>
+                    <div class="correct-answer">B（产品差异化）</div>
+                    <div class="separator"></div>
+                    <div class="question">13. 仪容仪表中要求妆容：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">14. 食品安全是生命线，是餐饮从业人员的：</div>
+                    <div class="correct-answer">B（第一要务）</div>
+                    <div class="separator"></div>
+                    <div class="question">15. 仪容仪表中要求头发：</div>
+                    <div class="correct-answer">C（发网）</div>
+                    <div class="separator"></div>
+                    <div class="question">16. 公司坚持将发展机会留给内部员工，对外也可以加盟。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">17. 餐厅使用华莱士认可的食品、包装材料、消毒用品，且：</div>
+                    <div class="correct-answer">A（在保存期内、无变质）</div>
+                    <div class="separator"></div>
+                    <div class="question">18. 华莱士的目标观：</div>
+                    <div class="correct-answer">B（创造顾客）</div>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>生产区-解冻腌制</h3>
+                <div class="exam-content exam-answers">
+                    <div class="question">1. 每隔（）分钟翻动一次解冻槽中的冻品，并进行换水，避免冻品之间粘连影响解冻。</div>
+                    <div class="correct-answer">B：15</div>
+                    <div class="separator"></div>
+                    <div class="question">2. 完全解冻的标准：</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">3. 在拿取冷冻物料时要查看冷冻冰箱的温度是否在-15°℃到-18°℃。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">4. 冰水的制作：将（）：（）的冰和水混合充分搅拌至冰块几乎溶解，静置1分钟，捞出不能溶解的冰块。</div>
+                    <div class="correct-answer">B：9:16</div>
+                    <div class="separator"></div>
+                    <div class="question">5. 【腌制】的步骤：检查腌制品→冲洗→沥水→（）→调配腌制液→腌制产品→记录保存时间、开始使用时间→清洁工作区域。</div>
+                    <div class="correct-answer">B：配制冰水</div>
+                    <div class="separator"></div>
+                    <div class="question">6. 【全鸡腌制】解冻后在检查全鸡时要去除鸡毛、（）、（）、多余的油脂等。</div>
+                    <div class="correct-answer">C：淤血，内脏</div>
+                    <div class="separator"></div>
+                    <div class="question">7. 【解冻】的程序：冻品在解冻槽中（）摆放，不得交叉重叠（全鸡除外）。</div>
+                    <div class="correct-answer">A：平铺</div>
+                    <div class="separator"></div>
+                    <div class="question">8. 腌制类产品解冻后最长保存时间为（）小时。</div>
+                    <div class="correct-answer">D：48</div>
+                    <div class="separator"></div>
+                    <div class="question">9. 腌制好的产品在腌制机中不能超过10分钟，否则造成产品口味偏咸。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">10. 使用弗兰卡解冻槽解冻腿肉或者西装鸡等冻品时，可以不使用自封袋进行解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">11. 腌制品腌制后（）小时可用，保存时间48小时（从解冻完成开始计算）。</div>
+                    <div class="correct-answer">B：2</div>
+                    <div class="separator"></div>
+                    <div class="question">12. 冷藏解冻：将产品用周转箱装好放入冷藏冰箱解冻，冷藏冰箱温度为1°℃-5°℃。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">13. 冻品有浸水解冻和常温解冻两种方式解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">14. 浸水解冻时因夏天、冬天的水温不一样，所以冬天可以热水解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">15. 解冻好的腌制品要冲洗（）分钟。</div>
+                    <div class="correct-answer">D：5</div>
+                    <div class="separator"></div>
+                    <div class="question">16. 完全解冻又无法立即腌制的产品要及时放进冷藏冰箱，并记录产品解冻完成时间。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">17. 使用弗兰卡解冻槽解冻腿肉或者西装鸡等冻品时，可以不使用自封袋进行解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">18. 每隔30分钟翻动一次解冻槽中的冻品，并进行换水，避免冻品之间粘连影响解冻。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">19. 腌制好的产品不能在腌制机中不能超过（）分钟，否则造成产品口味偏咸。</div>
+                    <div class="correct-answer">A：10</div>
+                    <div class="separator"></div>
+                    <div class="question">20. 在拿取冷冻物料时要查看冷冻冰箱的温度是否在-15°℃到-18°℃。</div>
+                    <div class="correct-answer">对</div>
+                </div>
+            </div>
+            <div class="exam-section" onclick="toggleExamSection(this)">
+                <h3>生产区-裹粉炸制</h3>
+                <div class="exam-content exam-answers">
+                    <div class="question">1. 裹粉方式中的压：用（）按压，注意力度适中，确保每个半成品都能沾满面粉。</div>
+                    <div class="correct-answer">B：掌心</div>
+                    <div class="separator"></div>
+                    <div class="question">2. 摇篮的作用：避免产品在炸制过程中粘连在一起，影响产品外观，严重的粘连在一起会导致产品不熟。</div>
+                    <div class="correct-answer">对</div>
+                    <div class="separator"></div>
+                    <div class="question">3. 半成品倒入裹粉盆前要将腌制汁滴干，避免腌制汁过多造成面粉（），影响面粉应产率。</div>
+                    <div class="correct-answer">C：结块</div>
+                    <div class="separator"></div>
+                    <div class="question">4. 裹粉的方式：三压、三拍、三抖。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">5. 产品烹炸结束计时器响起，提起炸蓝，滴油15-20秒。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">6. 产品下锅前需检查炸锅温度是否达到（)℃。</div>
+                    <div class="correct-answer">C: 175±5</div>
+                    <div class="separator"></div>
+                    <div class="question">7. 检查面粉量是否达到裹粉盆的1/2到2/3之间的原因：</div>
+                    <div class="correct-answer">C：粉量不足会造成成品裸露</div>
+                    <div class="separator"></div>
+                    <div class="question">8. 油的七大敌人：（），高温，清洁剂，空气，（），碳水化合物，金属。</div>
+                    <div class="correct-answer">C:水，盐</div>
+                    <div class="separator"></div>
+                    <div class="question">9. 产品下锅前需检查炸锅温度是否达到204±5°℃。</div>
+                    <div class="correct-answer">错</div>
+                    <div class="separator"></div>
+                    <div class="question">10. 裹粉前需要佩戴裹粉围裙。</div>
+                    <div class="correct-answer">对</div>
                 </div>
             </div>
             <div class="exam-section" onclick="toggleExamSection(this)">
